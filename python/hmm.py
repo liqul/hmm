@@ -17,3 +17,7 @@ class HMM:
     @property
     def transition_probs(self):
         return self._transition_probs
+    
+    @property
+    def emission_matrix(self):
+        return self._emission_probs
