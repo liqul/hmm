@@ -23,7 +23,10 @@ def viterbi(hmm, initial_dist, emissions):
 
     return state_seq
 
-# the viterbi algorithm where the input emissions are distributions
+# The viterbi algorithm where the input emissions are distributions
+# Sometimes, the observation is with uncertainty. For instance, the observation is output from a error prone classifier with estimated
+# probabilities for each class. In this case, instead of using the emission probability defined in the parameter, we calculate the 
+# inner product of the observed distribution and the corresponding emission distribution.
 def viterbi2(hmm, initial_dist, emission_dists):
     probs = np.sum(hmm.emission_matrix * np.column_stack(initial_dist) * emission_dists[0], axis = 1)
     stack = []
